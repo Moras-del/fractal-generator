@@ -77,7 +77,7 @@ int main(int argc, char** argv)
 {    
     if(argc < 3)
     {
-        cout << "specify --ral(-r) and --imaginary(-i)" << endl;
+        cout << "specify --real(-r) and --imaginary(-i)" << endl;
         return 0;
     }
     pair<float, float> numbers = getNumbers(argc, argv);
