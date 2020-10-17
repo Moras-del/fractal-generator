@@ -1,5 +1,6 @@
 #include <GL/glut.h>
 #include <complex>
+#include "climanager.hpp"
 #include <iostream>
 
 using namespace std;
@@ -75,17 +76,21 @@ inline int square(complex<float> value)
 
 int main(int argc, char** argv)
 {    
-    if(argc < 3)
-    {
-        cout << "specify --real(-r) and --imaginary(-i)" << endl;
-        return 0;
+    CliManager manager(argc, argv);
+    float real, imag;
+    if(!manager.getFloat(real, "--real", "-r")){
+        cout << "please specify --real (-r) number" << endl;
+        return -1;
     }
-    pair<float, float> numbers = getNumbers(argc, argv);
+    if(!manager.getFloat(imag, "--imaginary", "-i")){
+        cout << "please specify --imaginary (-i) number" << endl;
+        return -1;
+    }
     for(int x = 0; x < WIDTH; x++)
     {
         for(int y = 0; y < HEIGHT; y++)
         {
-            setPixel(x, y, 0, 0, julia(x, y, numbers.first, numbers.second), pixels);
+            setPixel(x, y, 0, 0, julia(x, y, real, imag), pixels);
         }
     }
     glutInit(&argc, argv);
