@@ -1,6 +1,8 @@
 # fractal-generator
 C++ app to generate fractals based on provided args.  
-GLUT and opengl required  .
+GLUT and opengl required:  
+```sudo apt-get install mesa-utils```  
+```sudo apt-get install freeglut3-dev```  
 Usage:  
 ```cmake .```  
 ```make```  
