@@ -59,7 +59,7 @@ void setPixel(int x, int y, int r, int g, int b, GLubyte* pixels)
 int julia(float x, float y, float real, float imag)
 {
     complex<float> c(real, imag);
-    complex<float> z(1.5*(x - WIDTH/2)/(0.45*WIDTH), 1.0*(y - HEIGHT/2)/(0.45*HEIGHT));
+    complex<float> z(1.5*(x - WIDTH/2)/(0.40*WIDTH), 1.0*(y - HEIGHT/2)/(0.40*HEIGHT));
     unsigned short iters = 0;
     while (square(z) < 4 && iters < 34) {
            z = z * z + c;
